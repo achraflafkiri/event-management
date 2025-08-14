@@ -58,7 +58,7 @@
                         @if(!$userHasRsvped && $event->hasAvailableSpots())
                             <form method="POST" action="{{ route('events.rsvp', $event) }}">
                                 @csrf
-                                <button type="submit" class="btn btn-success btn-lg">RSVP to this Event</button>
+                                <button type="submit" class="btn btn-success btn-lg">Register for this Event</button>
                             </form>
                         @elseif($userHasRsvped)
                             <div class="alert alert-success">
@@ -67,7 +67,7 @@
                             <form method="POST" action="{{ route('events.rsvp.cancel', $event) }}">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-outline-danger">Cancel RSVP</button>
+                                <button type="submit" class="btn btn-outline-danger">Cancel Registration</button>
                             </form>
                         @else
                             <div class="alert alert-warning">

@@ -22,7 +22,7 @@ class RsvpController extends Controller
 
         // Check if user already RSVP'd
         if ($event->userHasRsvped(auth()->id())) {
-            return back()->with('error', 'You have already RSVP\'d to this event!');
+            return back()->with('error', 'You are already registered for this event!');
         }
 
         Rsvp::create([
@@ -30,7 +30,7 @@ class RsvpController extends Controller
             'event_id' => $event->id,
         ]);
 
-        return back()->with('success', 'You have successfully RSVP\'d to this event!');
+        return back()->with('success', 'You have successfully registered for this event!');
     }
 
     public function destroy(Event $event)

@@ -1,66 +1,199 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Event Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A Laravel-based event management application that allows users to create, view, and manage events with RSVP functionality.
 
-## About Laravel
+## 🚀 Quick Start
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Prerequisites
+- PHP 8.0 or higher
+- Composer
+- Node.js & NPM
+- MySQL database
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Installation Steps
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/achraflafkiri/event-management.git
+   cd event-management
+   ```
 
-## Learning Laravel
+2. **Install PHP dependencies**
+   ```bash
+   composer install
+   ```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+3. **Install JavaScript dependencies**
+   ```bash
+   npm install
+   npm run build
+   ```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+4. **Environment setup**
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+5. **Configure database**
+   
+   Edit `.env` file with your database credentials:
+   ```env
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=event_management
+   DB_USERNAME=your_username
+   DB_PASSWORD=your_password
+   ```
 
-## Laravel Sponsors
+6. **Create database and run migrations**
+   ```bash
+   # Create database in MySQL
+   mysql -u your_username -p
+   CREATE DATABASE event_management;
+   exit;
+   
+   # Run migrations
+   php artisan migrate
+   ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+7. **Seed database with test data**
+   ```bash
+   php artisan db:seed
+   ```
 
-### Premium Partners
+8. **Start the application**
+   ```bash
+   php artisan serve
+   ```
+   
+   Visit: `http://localhost:8000`
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## 👤 Test Accounts
 
-## Contributing
+**Admin User:**
+- Email: `admin@example.com`
+- Password: `password`
+- Can: Create, edit, delete events
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+**Regular User:**
+- Email: `user@example.com`
+- Password: `password`
+- Can: View events and RSVP
 
-## Code of Conduct
+## ✨ Features
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### User Features
+- **View Events**: Browse upcoming events with details
+- **Filter & Sort**: Filter by location, sort by date/name
+- **RSVP System**: Register for events with capacity limits
+- **User Authentication**: Secure login/registration
 
-## Security Vulnerabilities
+### Admin Features  
+- **Event Management**: Create, edit, delete events
+- **Attendee Management**: View RSVP lists
+- **Capacity Control**: Set RSVP limits for events
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Technical Features
+- **Responsive Design**: Works on desktop and mobile
+- **Form Validation**: Server-side validation for all forms
+- **Role-based Access**: Admin vs regular user permissions
+- **API Endpoints**: RESTful API for future integrations
 
-## License
+## 🛠 Built With
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- **Backend**: Laravel 12
+- **Frontend**: Blade Templates + Bootstrap 5
+- **Database**: MySQL
+- **Authentication**: Laravel Breeze
+- **Validation**: Laravel Form Requests
+- **Authorization**: Laravel Middleware
+
+## 📁 Project Structure
+
+```
+event-management-system/
+├── app/
+│   ├── Http/Controllers/
+│   │   ├── EventController.php      # Main event management
+│   │   ├── RsvpController.php       # RSVP functionality
+│   │   └── Api/EventController.php  # API endpoints
+│   ├── Models/
+│   │   ├── User.php                 # User model with roles
+│   │   ├── Event.php               # Event model
+│   │   └── Rsvp.php                # RSVP model
+│   └── Http/Requests/              # Form validation
+├── database/
+│   ├── migrations/                 # Database schema
+│   └── seeders/                    # Test data
+├── resources/
+│   └── views/
+│       ├── events/                 # Event views
+│       └── layouts/                # Layout templates
+└── routes/
+    ├── web.php                     # Web routes
+    └── api.php                     # API routes
+```
+
+## 🌐 API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/events` | Get all events |
+| POST | `/api/events` | Create new event (admin) |
+| GET | `/api/events/{id}` | Get event details |
+| PUT | `/api/events/{id}` | Update event (admin) |
+| DELETE | `/api/events/{id}` | Delete event (admin) |
+| POST | `/api/events/{id}/rsvp` | RSVP to event |
+
+## 🔧 Configuration
+
+### Mail Configuration (Optional)
+For password reset functionality, configure mail in `.env`:
+```env
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=your-email@gmail.com
+MAIL_PASSWORD=your-app-password
+MAIL_ENCRYPTION=tls
+```
+
+### Cache Configuration
+```bash
+# Clear caches during development
+php artisan config:clear
+php artisan cache:clear
+php artisan route:clear
+php artisan view:clear
+```
+
+## 📝 Database Schema
+
+### Users Table
+- `id`, `name`, `email`, `password`, `role` (admin/user)
+
+### Events Table  
+- `id`, `name`, `description`, `location`, `event_date`, `rsvp_limit`, `created_by`
+
+### RSVPs Table
+- `id`, `user_id`, `event_id`, `created_at`
+
+## 🐛 Troubleshooting
+
+**Database Connection Error:**
+- Verify database credentials in `.env`
+- Ensure MySQL service is running
+- Check if database exists
+
+**Permission Errors:**
+- Run: `chmod -R 775 storage bootstrap/cache`
+
+**Missing Dependencies:**
+- Run: `composer install` and `npm install`
+
+**App Key Missing:**
+- Run: `php artisan key:generate`
+
+Enjoy! 🎉 :) Thank you POWER GROUP Team
